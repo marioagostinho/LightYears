@@ -1,13 +1,15 @@
 #include <framework/Core.h>
 
 #include "framework/Application.h"
+#include "framework/World.h"
 
 namespace ly 
 {
 	Application::Application()
 		: mWindow(sf::VideoMode(1024, 1440), "Light Years"),
 		mTargetFrameRate(60.f),
-		mTickClock()
+		mTickClock(),
+		currentWorld(nullptr)
 	{
 		
 	}
@@ -43,8 +45,6 @@ namespace ly
 				TickInternal(targetDeltaTime);
 				RenderInternal();
 			}
-
-			LOG("Ticking at framerate: %f", 1.f / frameDeltaTime);
 		}
 	}
 
@@ -52,6 +52,11 @@ namespace ly
 	void Application::TickInternal(float deltaTime)
 	{
 		Tick(deltaTime);
+
+		if (currentWorld)
+		{
+			currentWorld->TickInternal(deltaTime);
+		}
 	}
 
 	void Application::Tick(float deltaTime)
