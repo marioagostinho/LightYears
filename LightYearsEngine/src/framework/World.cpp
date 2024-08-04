@@ -41,10 +41,18 @@ namespace ly
 
 		mPendingActors.clear();
 
-		// Tick all actors
-		for (shared<Actor> actor : mActors)
+		// Check actors
+		for (auto iter = mActors.begin(); iter != mActors.end();)
 		{
-			actor->Tick(deltaTime);
+			if (iter->get()->IsPendingdDestroy())
+			{
+				iter = mActors.erase(iter);
+			}
+			else
+			{
+				iter->get()->Tick(deltaTime);
+				++iter;
+			}
 		}
 
 		Tick(deltaTime);
