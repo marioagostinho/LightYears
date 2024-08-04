@@ -89,4 +89,10 @@ namespace ly
 			currentWorld->Render(mWindow);
 		}
 	}
+#
+	// Window
+	sf::Vector2u Application::GetWindowSize() const
+	{
+		return mWindow.getSize();
+	}
 }
