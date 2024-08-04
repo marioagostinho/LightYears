@@ -27,8 +27,8 @@ namespace ly
 		void SetActorLocation(const sf::Vector2f& newLoc);
 		void SetActorRotation(float newRot);
 
-		// Set location & rotation offset
-		void AddLocationLocationOffset(const sf::Vector2f& offsetAmt);
+		// Add location & rotation offset
+		void AddActorLocationLocationOffset(const sf::Vector2f& offsetAmt);
 		void AddActorRotationOffset(float offsetAmt);
 
 		// Get location & rotation

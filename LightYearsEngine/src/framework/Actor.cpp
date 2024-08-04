@@ -77,7 +77,7 @@ namespace ly
 		mSprite.setRotation(newRot);
 	}
 
-	void Actor::AddLocationLocationOffset(const sf::Vector2f& offsetAmt)
+	void Actor::AddActorLocationLocationOffset(const sf::Vector2f& offsetAmt)
 	{
 		SetActorLocation(GetActorLocation() + offsetAmt);
 	}

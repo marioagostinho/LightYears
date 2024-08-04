@@ -1,0 +1,23 @@
+#include "spaceship/Spaceship.h"
+
+namespace ly
+{
+	Spaceship::Spaceship(World* owningWorld, const std::string& texturePath)
+		: Actor(owningWorld, texturePath),
+		mVelocity()
+	{
+
+	}
+
+	void Spaceship::Tick(float deltaTime)
+	{
+		Actor::Tick(deltaTime);
+
+		AddActorLocationLocationOffset(GetVelocity() * deltaTime);
+	}
+
+	void Spaceship::SetVelocity(const sf::Vector2f& newVelocity)
+	{
+		mVelocity = newVelocity;
+	}
+}
