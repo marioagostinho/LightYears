@@ -1,5 +1,6 @@
 #include "framework/Actor.h"
 #include "framework/Core.h"
+#include "framework/AssetManager.h"
 
 namespace ly
 {
@@ -28,7 +29,6 @@ namespace ly
 
 	void Actor::BeginPlay()
 	{
-		LOG("Actor begin play");
 	}
 
 	void Actor::TickInternal(float deltaTime)
@@ -41,16 +41,19 @@ namespace ly
 
 	void Actor::Tick(float deltaTime)
 	{
-		LOG("Actor ticking");
 	}
 
 	void Actor::SetTexture(const std::string& texturePath)
 	{
-		mTexture.loadFromFile(texturePath);
-		mSprite.setTexture(mTexture);
+		mTexture = AssetManager::Get().LoadTexture(texturePath);
 
-		int textureWidth = mTexture.getSize().x;
-		int textureHeight = mTexture.getSize().y;
+		if (!mTexture) 
+			return;
+
+		mSprite.setTexture(*mTexture);
+
+		int textureWidth = mTexture->getSize().x;
+		int textureHeight = mTexture->getSize().y;
 		mSprite.setTextureRect(sf::IntRect(sf::Vector2i(), sf::Vector2i(textureWidth, textureHeight)));
 	}
 
