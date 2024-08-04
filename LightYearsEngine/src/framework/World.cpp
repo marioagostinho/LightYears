@@ -62,4 +62,12 @@ namespace ly
 	{
 		LOG("Tick at frame rate %f", 1.f / deltaTime);
 	}
+
+	void World::Render(sf::RenderWindow& window)
+	{
+		for (auto actor : mActors)
+		{
+			actor->Render(window);
+		}
+	}
 }
