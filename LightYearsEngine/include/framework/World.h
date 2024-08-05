@@ -24,6 +24,8 @@ namespace ly
 
 		sf::Vector2u GetWindowSize() const;
 
+		void CleanCycle();
+
 	private:
 		void BeginPlay();
 		void Tick(float deltaTime);

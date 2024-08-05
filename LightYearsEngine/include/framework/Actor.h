@@ -39,8 +39,11 @@ namespace ly
 		sf::Vector2f GetActorForwardDirection() const;
 		sf::Vector2f GetActorRightDirection() const;
 
+		sf::FloatRect GetActorGlobalBounds() const;
+
 		// Window
 		sf::Vector2u GetWindowSize() const;
+		bool IsActorOutOfWindowBounds() const;
 
 		// World
 		World* GetWorld() const { return mOwningWorld; }
