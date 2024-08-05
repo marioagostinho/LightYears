@@ -5,6 +5,9 @@
 #include "framework/Core.h"
 #include "framework/Object.h"
 
+
+class b2Body;
+
 namespace ly
 {
 	class World;
@@ -13,6 +16,8 @@ namespace ly
 	public:
 		Actor(World* owningWorld, const std::string& texturePath = "");
 		virtual ~Actor();
+
+		virtual void Destroy() override;
 
 		void BeginPlayInternal();
 		virtual void BeginPlay();
@@ -48,13 +53,27 @@ namespace ly
 		// World
 		World* GetWorld() const { return mOwningWorld; }
 
+		void SetEnablePhysics(bool enable);
+		virtual void OnActorBeginOverlap(Actor* other);
+		virtual void OnActorEndOverlap(Actor* other);
+
 	private:
 		void CenterPivot();
+
+		// Physics
+		void InitializePhysics();
+		void UninitializedPhysics();
+		void UpdatePhysicsBodyTransform();
 
 		World* mOwningWorld;
 		bool mHasBeganPlay;
 
+		// Graphics
 		sf::Sprite mSprite;
 		shared<sf::Texture> mTexture;
+
+		// Physics
+		b2Body* mPhysicsBody;
+		bool mPhysicsEnabled;
 	};
 }

@@ -1,8 +1,12 @@
-#include "framework/Actor.h"
+#include <box2D/b2_body.h>
+
 #include "framework/Core.h"
 #include "framework/AssetManager.h"
 #include "framework/MathUtility.h"
 #include "framework/World.h"
+#include "framework/PhysicsSystem.h"
+
+#include "framework/Actor.h"
 
 namespace ly
 {
@@ -10,7 +14,9 @@ namespace ly
 		: mOwningWorld(owningWorld),
 		mHasBeganPlay(false),
 		mSprite(),
-		mTexture()
+		mTexture(),
+		mPhysicsBody(nullptr),
+		mPhysicsEnabled(false)
 	{
 		SetTexture(texturePath);
 	}
@@ -18,6 +24,12 @@ namespace ly
 	Actor::~Actor()
 	{
 		LOG("Actor destroyed");
+	}
+
+	void Actor::Destroy()
+	{
+		UninitializedPhysics();
+		Object::Destroy();
 	}
 
 	void Actor::BeginPlayInternal()
@@ -71,11 +83,13 @@ namespace ly
 	void Actor::SetActorLocation(const sf::Vector2f& newLoc)
 	{
 		mSprite.setPosition(newLoc);
+		UpdatePhysicsBodyTransform();
 	}
 
 	void Actor::SetActorRotation(float newRot)
 	{
 		mSprite.setRotation(newRot);
+		UpdatePhysicsBodyTransform();
 	}
 
 	void Actor::AddActorLocationOffset(const sf::Vector2f& offsetAmt)
@@ -143,5 +157,58 @@ namespace ly
 		}
 
 		return false;
+	}
+
+	void Actor::SetEnablePhysics(bool enable)
+	{
+		mPhysicsEnabled = enable;
+
+		if (mPhysicsEnabled)
+		{
+			InitializePhysics();
+		}
+		else
+		{
+			UninitializedPhysics();
+		}
+	}
+
+	void Actor::OnActorBeginOverlap(Actor* other)
+	{
+		LOG("Overlapped");
+	}
+
+	void Actor::OnActorEndOverlap(Actor* other)
+	{
+		LOG("Overlap Finished");
+	}
+
+	void Actor::InitializePhysics()
+	{
+		if (!mPhysicsBody)
+		{
+			mPhysicsBody = PhysicsSystem::Get().AddListener(this);
+		}
+	}
+
+	void Actor::UninitializedPhysics()
+	{
+		if (mPhysicsBody)
+		{
+			PhysicsSystem::Get().RemoveListener(mPhysicsBody);
+			mPhysicsBody = nullptr;
+		}
+	}
+
+	void Actor::UpdatePhysicsBodyTransform()
+	{
+		if (mPhysicsBody)
+		{
+			float physicsScale = PhysicsSystem::Get().GetPhysicsScale();
+			b2Vec2 position(GetActorLocation().x * physicsScale, GetActorLocation().y * physicsScale);
+			float rotation = DegreesToRadians(GetActorRotation());
+
+			mPhysicsBody->SetTransform(position, rotation);
+		}
 	}
 }

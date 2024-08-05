@@ -9,6 +9,13 @@ namespace ly
 
 	}
 
+	void Spaceship::BeginPlay()
+	{
+		Actor::BeginPlay();
+
+		SetEnablePhysics(true);
+	}
+
 	void Spaceship::Tick(float deltaTime)
 	{
 		Actor::Tick(deltaTime);
@@ -19,5 +26,9 @@ namespace ly
 	void Spaceship::SetVelocity(const sf::Vector2f& newVelocity)
 	{
 		mVelocity = newVelocity;
+	}
+
+	void Spaceship::Shoot()
+	{
 	}
 }

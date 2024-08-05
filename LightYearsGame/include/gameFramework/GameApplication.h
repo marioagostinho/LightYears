@@ -15,5 +15,7 @@ namespace ly
 
 	private:
 		weak<PlayerSpaceship> testPlayerSpaceship;
+
+		float counter;
 	};
 }
