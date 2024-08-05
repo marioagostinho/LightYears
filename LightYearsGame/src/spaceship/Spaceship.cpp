@@ -13,7 +13,7 @@ namespace ly
 	{
 		Actor::Tick(deltaTime);
 
-		AddActorLocationLocationOffset(GetVelocity() * deltaTime);
+		AddActorLocationOffset(GetVelocity() * deltaTime);
 	}
 
 	void Spaceship::SetVelocity(const sf::Vector2f& newVelocity)

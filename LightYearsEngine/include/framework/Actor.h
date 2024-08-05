@@ -28,7 +28,7 @@ namespace ly
 		void SetActorRotation(float newRot);
 
 		// Add location & rotation offset
-		void AddActorLocationLocationOffset(const sf::Vector2f& offsetAmt);
+		void AddActorLocationOffset(const sf::Vector2f& offsetAmt);
 		void AddActorRotationOffset(float offsetAmt);
 
 		// Get location & rotation
@@ -39,7 +39,11 @@ namespace ly
 		sf::Vector2f GetActorForwardDirection() const;
 		sf::Vector2f GetActorRightDirection() const;
 
+		// Window
 		sf::Vector2u GetWindowSize() const;
+
+		// World
+		World* GetWorld() const { return mOwningWorld; }
 
 	private:
 		void CenterPivot();
