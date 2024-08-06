@@ -48,7 +48,7 @@ namespace ly
 
 		// Window
 		sf::Vector2u GetWindowSize() const;
-		bool IsActorOutOfWindowBounds() const;
+		bool IsActorOutOfWindowBounds(float allowance = 10.f) const;
 
 		// World
 		const World* GetWorld() const { return mOwningWorld; }

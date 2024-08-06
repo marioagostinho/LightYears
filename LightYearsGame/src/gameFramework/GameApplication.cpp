@@ -3,7 +3,7 @@
 
 #include "config.h"
 #include "player/PlayerSpaceship.h"
-#include "Spaceship/Spaceship.h"
+#include "enemy/Vanguard.h"
 #include "gameFramework/GameApplication.h"
 
 ly::Application* GetApplication()
@@ -22,17 +22,13 @@ namespace ly
 		// World
 		weak<World> newWorld = LoadWorld<World>();
 
-
-
 		// Test
 		testPlayerSpaceship = newWorld.lock()->SpawnActor<PlayerSpaceship>();
 		testPlayerSpaceship.lock()->SetActorLocation(sf::Vector2f(300.f, 490.f));
 		testPlayerSpaceship.lock()->SetActorRotation(-90.f);
 
-		weak<Spaceship> testSpaceship = newWorld.lock()->SpawnActor<Spaceship>();
-		testSpaceship.lock()->SetTexture("SpaceShooterRedux/PNG/playerShip1_blue.png");
+		weak<Vanguard> testSpaceship = newWorld.lock()->SpawnActor<Vanguard>();
 		testSpaceship.lock()->SetActorLocation(sf::Vector2f(100.f, 50.f));
-		testSpaceship.lock()->SetTeamID(2);
 	}
 
 	void GameApplication::Tick(float deltaTime)

@@ -140,7 +140,7 @@ namespace ly
 		return mOwningWorld->GetWindowSize();
 	}
 
-	bool Actor::IsActorOutOfWindowBounds() const
+	bool Actor::IsActorOutOfWindowBounds(float allowance) const
 	{
 		float windowWidth = GetWorld()->GetWindowSize().x;
 		float windowHeight = GetWorld()->GetWindowSize().y;
@@ -150,10 +150,10 @@ namespace ly
 
 		sf::Vector2f actorPos = GetActorLocation();
 
-		if (actorPos.x < -width
-			|| actorPos.x > windowWidth + width
-			|| actorPos.y < -height
-			|| actorPos.x > windowHeight + height)
+		if (actorPos.x < -width - allowance
+			|| actorPos.x > windowWidth + width + allowance
+			|| actorPos.y < -height - allowance
+			|| actorPos.x > windowHeight + height + allowance)
 		{
 			return true;
 		}
@@ -214,7 +214,7 @@ namespace ly
 
 	bool Actor::IsOtherHostile(Actor* other) const
 	{
-		if (GetTeamID() == GetNeuralTeamID() || other->GetTeamID() == GetNeuralTeamID())
+		if (other == nullptr || GetTeamID() == GetNeuralTeamID() || other->GetTeamID() == GetNeuralTeamID())
 			return false;
 
 		return GetTeamID() != other->GetTeamID();
