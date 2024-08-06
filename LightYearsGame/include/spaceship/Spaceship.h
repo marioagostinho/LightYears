@@ -18,9 +18,12 @@ namespace ly
 		sf::Vector2f GetVelocity() const { return mVelocity; };
 
 		virtual void Shoot();
+		virtual void ApplyDamage(float amt) override;
 
 	private:
-		void OnHealtChanged(float amt, float health, float maxHealth);
+		virtual void OnHealtChanged(float amt, float health, float maxHealth);
+		virtual void OnTakenDamage(float amt, float health, float maxHealth);
+		virtual void Blow();
 
 		sf::Vector2f mVelocity;
 

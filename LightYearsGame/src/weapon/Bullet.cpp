@@ -8,6 +8,7 @@ namespace ly
 		mSpeed(speed),
 		mDamage(damage)
 	{
+		SetTeamID(owner->GetTeamID());
 	}
 
 	void Bullet::BeginPlay()
@@ -24,6 +25,15 @@ namespace ly
 
 		if (IsActorOutOfWindowBounds())
 		{
+			Destroy();
+		}
+	}
+
+	void Bullet::OnActorBeginOverlap(Actor* other)
+	{
+		if (IsOtherHostile(other))
+		{
+			other->ApplyDamage(GetDamage());
 			Destroy();
 		}
 	}

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <framework/Actor.h>
+#include <framework/Core.h>
 
 namespace ly
 {
@@ -15,7 +16,11 @@ namespace ly
 		inline void SetSpeed(float newSpeed) { mSpeed = newSpeed; };
 		inline void SetDamage(float newDamage) { mDamage = newDamage; };
 
+		float GetDamage() const { return mDamage; }
+
 	private:
+		virtual void OnActorBeginOverlap(Actor* other) override;
+
 		void Move(float deltaTime);
 
 		Actor* mOwner;

@@ -16,7 +16,8 @@ namespace ly
 		mSprite(),
 		mTexture(),
 		mPhysicsBody(nullptr),
-		mPhysicsEnabled(false)
+		mPhysicsEnabled(false),
+		mTeamID(GetNeuralTeamID())
 	{
 		SetTexture(texturePath);
 	}
@@ -127,6 +128,7 @@ namespace ly
 		return mSprite.getGlobalBounds();
 	}
 
+
 	void Actor::CenterPivot()
 	{
 		sf::FloatRect bound = mSprite.getGlobalBounds();
@@ -175,12 +177,10 @@ namespace ly
 
 	void Actor::OnActorBeginOverlap(Actor* other)
 	{
-		LOG("Overlapped");
 	}
 
 	void Actor::OnActorEndOverlap(Actor* other)
 	{
-		LOG("Overlap Finished");
 	}
 
 	void Actor::InitializePhysics()
@@ -210,5 +210,17 @@ namespace ly
 
 			mPhysicsBody->SetTransform(position, rotation);
 		}
+	}
+
+	bool Actor::IsOtherHostile(Actor* other) const
+	{
+		if (GetTeamID() == GetNeuralTeamID() || other->GetTeamID() == GetNeuralTeamID())
+			return false;
+
+		return GetTeamID() != other->GetTeamID();
+	}
+
+	void Actor::ApplyDamage(float amt)
+	{
 	}
 }

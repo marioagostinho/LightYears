@@ -53,9 +53,20 @@ namespace ly
 		// World
 		World* GetWorld() const { return mOwningWorld; }
 
+		// Physics
 		void SetEnablePhysics(bool enable);
 		virtual void OnActorBeginOverlap(Actor* other);
 		virtual void OnActorEndOverlap(Actor* other);
+
+		// Team
+		void SetTeamID(uint8 teamID) { mTeamID = teamID; }
+
+		static uint8 GetNeuralTeamID() { return neutralTeamID; }
+		uint8 GetTeamID() const { return mTeamID;  }
+		bool IsOtherHostile(Actor* other) const;
+
+		//Damage
+		virtual void ApplyDamage(float amt);
 
 	private:
 		void CenterPivot();
@@ -75,5 +86,9 @@ namespace ly
 		// Physics
 		b2Body* mPhysicsBody;
 		bool mPhysicsEnabled;
+
+		uint8 mTeamID;
+
+		const static uint8 neutralTeamID = 255;
 	};
 }
