@@ -4,7 +4,8 @@ namespace ly
 {
 	Spaceship::Spaceship(World* owningWorld, const std::string& texturePath)
 		: Actor(owningWorld, texturePath),
-		mVelocity()
+		mVelocity(),
+		mHealthComp(100.f, 100.f)
 	{
 
 	}
@@ -14,6 +15,8 @@ namespace ly
 		Actor::BeginPlay();
 
 		SetEnablePhysics(true);
+
+		mHealthComp.onHealthChanged.BindAction(GetWeakRef(), &Spaceship::OnHealtChanged);
 	}
 
 	void Spaceship::Tick(float deltaTime)
@@ -29,6 +32,10 @@ namespace ly
 	}
 
 	void Spaceship::Shoot()
+	{
+	}
+
+	void Spaceship::OnHealtChanged(float amt, float health, float maxHealth)
 	{
 	}
 }

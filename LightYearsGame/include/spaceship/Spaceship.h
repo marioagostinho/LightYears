@@ -2,6 +2,8 @@
 
 #include <framework/Actor.h>
 
+#include "gameplay/HealthComponent.h"
+
 namespace ly
 {
 	class Spaceship : public Actor
@@ -18,6 +20,10 @@ namespace ly
 		virtual void Shoot();
 
 	private:
+		void OnHealtChanged(float amt, float health, float maxHealth);
+
 		sf::Vector2f mVelocity;
+
+		HealthComponent mHealthComp;
 	};
 }
