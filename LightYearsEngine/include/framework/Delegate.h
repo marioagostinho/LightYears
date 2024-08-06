@@ -29,7 +29,6 @@ namespace ly
 			mCallbacks.push_back(callbackFunc);
 		}
 
-
 		void Broadcast(Args... args)
 		{
 			for (auto iter = mCallbacks.begin(); iter != mCallbacks.end();)

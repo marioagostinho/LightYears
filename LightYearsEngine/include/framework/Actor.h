@@ -51,7 +51,8 @@ namespace ly
 		bool IsActorOutOfWindowBounds() const;
 
 		// World
-		World* GetWorld() const { return mOwningWorld; }
+		const World* GetWorld() const { return mOwningWorld; }
+		World* GetWorld() { return mOwningWorld; }
 
 		// Physics
 		void SetEnablePhysics(bool enable);
@@ -67,6 +68,10 @@ namespace ly
 
 		//Damage
 		virtual void ApplyDamage(float amt);
+
+		// Sprite
+		sf::Sprite& GetSprite() { return mSprite; }
+		const sf::Sprite& GetSprite() const { return mSprite; }
 
 	private:
 		void CenterPivot();
@@ -88,7 +93,6 @@ namespace ly
 		bool mPhysicsEnabled;
 
 		uint8 mTeamID;
-
 		const static uint8 neutralTeamID = 255;
 	};
 }

@@ -22,6 +22,8 @@ namespace ly
 		// World
 		weak<World> newWorld = LoadWorld<World>();
 
+
+
 		// Test
 		testPlayerSpaceship = newWorld.lock()->SpawnActor<PlayerSpaceship>();
 		testPlayerSpaceship.lock()->SetActorLocation(sf::Vector2f(300.f, 490.f));
