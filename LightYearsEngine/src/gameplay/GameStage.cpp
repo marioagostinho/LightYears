@@ -11,12 +11,10 @@ namespace ly
 
 	void GameStage::StartStage()
 	{
-		LOG("Stage Started");
 	}
 
 	void GameStage::TickStage(float deltaTime)
 	{
-		LOG("Stage Ticking");
 	}
 
 	void GameStage::FinishStage()
@@ -28,6 +26,5 @@ namespace ly
 
 	void GameStage::StageFinished()
 	{
-		LOG("Stage Finished");
 	}
 }
