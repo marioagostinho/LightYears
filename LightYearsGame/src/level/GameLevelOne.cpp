@@ -1,3 +1,5 @@
+#include <gameplay/GameStage.h>
+
 #include "player/PlayerSpaceship.h"
 #include "enemy/Vanguard.h"
 #include "spaceship/Spaceship.h"
@@ -27,5 +29,10 @@ namespace ly
 	{
 		LOG("TEST TIMER");
 		TimerManager::Get().ClearTimer(timerHandle_Test);
+	}
+
+	void GameLevelOne::InitGameStages()
+	{
+		AddStage(shared<GameStage>(new GameStage(this)));
 	}
 }
