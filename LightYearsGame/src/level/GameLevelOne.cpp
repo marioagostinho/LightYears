@@ -1,3 +1,5 @@
+#include <gameplay/WaitStage.h>
+
 #include "player/PlayerSpaceship.h"
 #include "enemy/Vanguard.h"
 #include "enemy/VanguardStage.h"
@@ -22,7 +24,9 @@ namespace ly
 
 	void GameLevelOne::InitGameStages()
 	{
+		AddStage(shared<WaitStage>(new WaitStage(this, 5.f)));
 		AddStage(shared<VanguardStage>(new VanguardStage(this)));
+		AddStage(shared<WaitStage>(new WaitStage(this, 5.f)));
 		AddStage(shared<TwinBladeStage>(new TwinBladeStage(this)));
 	}
 }
