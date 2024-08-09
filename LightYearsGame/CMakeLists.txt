@@ -35,6 +35,9 @@ add_executable(${LIGHT_YEARS_GAME_TARGET_NAME}
 	${CMAKE_CURRENT_SOURCE_DIR}/include/enemy/Hexagon.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/enemy/Hexagon.cpp
 
+	${CMAKE_CURRENT_SOURCE_DIR}/include/enemy/UFO.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/enemy/UFO.cpp
+
 	${CMAKE_CURRENT_SOURCE_DIR}/include/enemy/VanguardStage.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/enemy/VanguardStage.cpp
 
@@ -44,10 +47,11 @@ add_executable(${LIGHT_YEARS_GAME_TARGET_NAME}
 	${CMAKE_CURRENT_SOURCE_DIR}/include/enemy/HexagonStage.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/enemy/HexagonStage.cpp
 
+	${CMAKE_CURRENT_SOURCE_DIR}/include/enemy/UFOStage.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/enemy/UFOStage.cpp
+
 	${CMAKE_CURRENT_SOURCE_DIR}/include/level/GameLevelOne.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/level/GameLevelOne.cpp
-
-	
 )
 
 target_include_directories(${LIGHT_YEARS_GAME_TARGET_NAME} PUBLIC 

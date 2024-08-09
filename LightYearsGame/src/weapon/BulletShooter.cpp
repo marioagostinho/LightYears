@@ -9,12 +9,12 @@ namespace ly
 	BulletShooter::BulletShooter(Actor* owner, 
 		float cooldownTime, 
 		const sf::Vector2f& localPositionOffset, 
-		float localRotationOffeset)
+		float localRotationOffset)
 		: Shooter(owner),
 		mCooldownClock(), 
 		mCooldownTime(cooldownTime),
 		mLocalPositionOffset(localPositionOffset), 
-		mLocalRotationOffset(localRotationOffeset)
+		mLocalRotationOffset(localRotationOffset)
 	{
 	}
 

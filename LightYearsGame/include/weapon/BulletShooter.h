@@ -12,7 +12,7 @@ namespace ly
 		BulletShooter(Actor* owner, 
 			float cooldownTime = 1.f, 
 			const sf::Vector2f& localPositionOffset = {0.f, 0.f}, 
-			float localRotationOffeset = 0.f);
+			float localRotationOffset = 0.f);
 
 		virtual bool IsOnCooldown() const override;
 
