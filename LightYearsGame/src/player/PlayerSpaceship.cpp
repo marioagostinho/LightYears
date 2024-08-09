@@ -2,6 +2,7 @@
 #include <framework/MathUtility.h>
 
 #include "weapon/BulletShooter.h"
+#include "weapon/ThreeWayShooter.h"
 #include "player/PlayerSpaceship.h"
 
 namespace ly
@@ -10,7 +11,7 @@ namespace ly
 		: Spaceship(owningWorld, path),
 		mMoveInput(),
 		mSpeed(200.f),
-		mShooter(new BulletShooter(this, .1f, { 50.f, 0.f }))
+		mShooter(new ThreeWayShooter(this, .1f, { 50.f, 0.f }))
 	{
 		SetTeamID(1);
 	}
