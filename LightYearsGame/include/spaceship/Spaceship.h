@@ -28,7 +28,8 @@ namespace ly
 
 		virtual void OnHealtChanged(float amt, float health, float maxHealth);
 		virtual void OnTakenDamage(float amt, float health, float maxHealth);
-		virtual void Blow();
+		void Blow();
+		virtual void Blew();
 
 		sf::Vector2f mVelocity;
 

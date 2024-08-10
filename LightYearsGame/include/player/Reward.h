@@ -5,11 +5,12 @@
 
 namespace ly
 {
+	class World;
+	class PlayerSpaceship;
+
 	using RewardFunc = std::function<void(PlayerSpaceship*)>;
 	using RewardFactoryFunc = std::function<weak<class Reward>(World*)>;
 
-	class World;
-	class PlayerSpaceship;
 	class Reward : public Actor
 	{
 	public:

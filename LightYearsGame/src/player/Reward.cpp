@@ -29,11 +29,12 @@ namespace ly
 
 	void Reward::OnActorBeginOverlap(Actor* other)
 	{
-		PlayerSpaceship* playerSpaceship = static_cast<PlayerSpaceship*>(other);
+		PlayerSpaceship* playerSpaceship = dynamic_cast<PlayerSpaceship*>(other);
 
 		if (playerSpaceship != nullptr && !playerSpaceship->IsPendingdDestroy())
 		{
 			mRewardFunc(playerSpaceship);
+			Destroy();
 		}
 	}
 
@@ -55,7 +56,7 @@ namespace ly
 
 	weak<Reward> CreateFrontalWiperReward(World* world)
 	{
-		return CreateReward(world, "SpaceShooterRedux/PNG/pickups/front_row_shooter.png", RewardFrontalWiper);
+		return CreateReward(world, "SpaceShooterRedux/PNG/pickups/front_row_shooter_pickup.png", RewardFrontalWiper);
 	}
 
 	void RewardHealth(PlayerSpaceship* player)
@@ -72,7 +73,7 @@ namespace ly
 	{
 		if (player != nullptr && !player->IsPendingdDestroy())
 		{
-			player->SetShooter(unique<Shooter>(new ThreeWayShooter(player, 0.4, {50.f, 0.f})));
+			player->SetShooter(unique<Shooter>(new ThreeWayShooter(player, 0.1, {50.f, 0.f})));
 		}
 	}
 
@@ -80,7 +81,7 @@ namespace ly
 	{
 		if (player != nullptr && !player->IsPendingdDestroy())
 		{
-			player->SetShooter(unique<Shooter>(new FrontalWiper(player, 0.4, { 50.f, 0.f })));
+			player->SetShooter(unique<Shooter>(new FrontalWiper(player, 0.2, { 50.f, 0.f })));
 		}
 	}
 }
