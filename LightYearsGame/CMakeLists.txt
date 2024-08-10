@@ -8,6 +8,9 @@ add_executable(${LIGHT_YEARS_GAME_TARGET_NAME}
 	${CMAKE_CURRENT_SOURCE_DIR}/include/player/PlayerSpaceship.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/player/PlayerSpaceship.cpp
 
+	${CMAKE_CURRENT_SOURCE_DIR}/include/player/Reward.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/player/Reward.cpp
+
 	${CMAKE_CURRENT_SOURCE_DIR}/include/weapon/Shooter.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/weapon/Shooter.cpp
 
@@ -16,6 +19,9 @@ add_executable(${LIGHT_YEARS_GAME_TARGET_NAME}
 
 	${CMAKE_CURRENT_SOURCE_DIR}/include/weapon/ThreeWayShooter.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/weapon/ThreeWayShooter.cpp
+
+	${CMAKE_CURRENT_SOURCE_DIR}/include/weapon/FrontalWiper.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/weapon/FrontalWiper.cpp
 
 	${CMAKE_CURRENT_SOURCE_DIR}/include/weapon/Bullet.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/weapon/Bullet.cpp

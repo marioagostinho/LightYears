@@ -2,7 +2,9 @@
 
 namespace ly
 {
-	ThreeWayShooter::ThreeWayShooter(Actor* owner, float cooldownTime, const sf::Vector2f& localOffset)
+	ThreeWayShooter::ThreeWayShooter(Actor* owner, 
+		float cooldownTime, 
+		const sf::Vector2f& localOffset)
 		: Shooter(owner),
 		mShooterLef(owner, cooldownTime, localOffset + sf::Vector2f{10, -10}, -30.f, "SpaceShooterRedux/PNG/Lasers/laserRed01.png"),
 		mShooterMid(owner, cooldownTime, localOffset, 0.f, "SpaceShooterRedux/PNG/Lasers/laserRed01.png"),
