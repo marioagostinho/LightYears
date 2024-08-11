@@ -11,10 +11,14 @@ namespace ly
 	public:
 		ThreeWayShooter(Actor* owner, float cooldownTime = 0.3f, const sf::Vector2f& localOffset = { 0.f, 0.f });
 
+		virtual void IncrementLevel(int amt) override;
 	private:
-		BulletShooter mShooterLef;
+		BulletShooter mShooterLeft;
 		BulletShooter mShooterMid;
 		BulletShooter mShooterRight;
+
+		BulletShooter mTopLevelShooterLeft;
+		BulletShooter mTopLevelShooterRight;
 
 		virtual void ShootImpl() override;
 	};
