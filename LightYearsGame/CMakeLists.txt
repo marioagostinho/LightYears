@@ -11,6 +11,12 @@ add_executable(${LIGHT_YEARS_GAME_TARGET_NAME}
 	${CMAKE_CURRENT_SOURCE_DIR}/include/player/Reward.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/player/Reward.cpp
 
+	${CMAKE_CURRENT_SOURCE_DIR}/include/player/Player.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/player/Player.cpp
+
+	${CMAKE_CURRENT_SOURCE_DIR}/include/player/PlayerManager.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/player/PlayerManager.cpp
+
 	${CMAKE_CURRENT_SOURCE_DIR}/include/weapon/Shooter.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/weapon/Shooter.cpp
 

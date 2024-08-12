@@ -24,12 +24,13 @@ namespace ly
 
 	Actor::~Actor()
 	{
-		LOG("Actor destroyed");
 	}
 
 	void Actor::Destroy()
 	{
 		UninitializedPhysics();
+		onActorDestroyed.Broadcast(this);
+
 		Object::Destroy();
 	}
 

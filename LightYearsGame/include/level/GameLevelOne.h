@@ -14,9 +14,11 @@ namespace ly
 	private:
 		virtual void BeginPlay() override;
 
-		weak<PlayerSpaceship> testPlayerSpaceship;
-		TimerHandle timerHandle_Test;
-
 		virtual void InitGameStages() override;
+		void PlayerSpaceshipDestroyed(Actor* destroyedPlayerSpaceship);
+		void GameOver();
+
+		weak<PlayerSpaceship> mPlayerSpaceship;
+		TimerHandle timerHandle_Test;
 	};
 }

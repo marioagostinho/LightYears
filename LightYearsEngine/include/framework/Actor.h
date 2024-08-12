@@ -4,7 +4,7 @@
 
 #include "framework/Core.h"
 #include "framework/Object.h"
-
+#include "framework/Delegate.h"
 
 class b2Body;
 
@@ -72,6 +72,8 @@ namespace ly
 		// Sprite
 		sf::Sprite& GetSprite() { return mSprite; }
 		const sf::Sprite& GetSprite() const { return mSprite; }
+
+		Delegate<Actor*> onActorDestroyed;
 
 	private:
 		void CenterPivot();
