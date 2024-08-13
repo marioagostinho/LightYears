@@ -40,6 +40,15 @@ add_library(${LIGHT_YEARS_ENGINE_TARGET_NAME} STATIC
 
 	${CMAKE_CURRENT_SOURCE_DIR}/include/gameplay/WaitStage.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/gameplay/WaitStage.cpp
+
+	${CMAKE_CURRENT_SOURCE_DIR}/include/widgets/HUD.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/HUD.cpp
+
+	${CMAKE_CURRENT_SOURCE_DIR}/include/widgets/Widget.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/Widget.cpp
+	
+	${CMAKE_CURRENT_SOURCE_DIR}/include/widgets/TextWidget.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/TextWidget.cpp
 )
 
 target_include_directories(${LIGHT_YEARS_ENGINE_TARGET_NAME} PUBLIC
