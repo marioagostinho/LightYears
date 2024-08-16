@@ -14,14 +14,20 @@ namespace ly
 		virtual ~Object();
 
 		virtual void Destroy();
-		bool IsPendingdDestroy() const { return mIsPendingDestroy; }
+		inline bool IsPendingdDestroy() const { return mIsPendingDestroy; }
 
 		weak<Object> GetWeakRef();
 		weak<const Object> GetWeakRef() const;
 
 		Delegate<Object*> onDestroy;
 
+		inline unsigned int GetUniqueID() const { return mUniqueID; }
+
 	private:
 		bool mIsPendingDestroy;
+		unsigned int mUniqueID;
+
+		static unsigned int uniqueIDCounter;
+		static unsigned int GetNextAvaliableID();
 	};
 }

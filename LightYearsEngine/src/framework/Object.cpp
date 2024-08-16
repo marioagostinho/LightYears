@@ -2,8 +2,15 @@
 
 namespace ly
 {
+	unsigned int Object::uniqueIDCounter = 0;
+	unsigned int Object::GetNextAvaliableID()
+	{
+		return uniqueIDCounter++;
+	}
+
 	Object::Object()
-		: mIsPendingDestroy(false)
+		: mIsPendingDestroy(false),
+		mUniqueID(GetNextAvaliableID())
 	{
 
 	}
