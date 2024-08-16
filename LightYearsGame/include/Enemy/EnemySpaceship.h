@@ -8,17 +8,20 @@ namespace ly
 	class EnemySpaceship : public Spaceship
 	{
 	public:
-		EnemySpaceship(World* owningWorld, 
-			const std::string& texturePath, 
+		EnemySpaceship(World* owningWorld,
+			const std::string& texturePath,
 			float collisionDamage = 200.f,
+			float rewardSpawnWeight = 0.5f,
 			const List<RewardFactoryFunc> rewards =
 			{
 				CreateHealthReward,
 				CreateThreewayShooterReward,
-				CreateFrontalWiperReward
+				CreateFrontalWiperReward,
+				CreateLifeReward
 			});
 
 		virtual void Tick(float deltaTime) override;
+		void SetScoreAwardAmt(unsigned int amt);
 
 	private:
 		void SpawnReward();
@@ -27,6 +30,9 @@ namespace ly
 		virtual void Blew() override;
 
 		float mCollisionDamage;
+		unsigned int mScoreAwardAmt;
+		float mRewardSpawnWeight;
+
 		List<RewardFactoryFunc> mRewardFactories;
 	};
 }

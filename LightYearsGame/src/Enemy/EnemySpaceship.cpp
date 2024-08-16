@@ -1,4 +1,6 @@
 #include <framework/MathUtility.h>
+
+#include "player/PlayerManager.h"
 #include "Enemy/EnemySpaceship.h"
 
 namespace ly
@@ -6,10 +8,13 @@ namespace ly
 	EnemySpaceship::EnemySpaceship(World* owningWorld,
 		const std::string& texturePath,
 		float collisionDamage,
+		float rewardSpawnWeight,
 		const List<RewardFactoryFunc> rewards)
 		: Spaceship(owningWorld, texturePath),
 		mCollisionDamage(collisionDamage),
-		mRewardFactories(rewards)
+		mRewardFactories(rewards),
+		mScoreAwardAmt(10),
+		mRewardSpawnWeight(rewardSpawnWeight)
 	{
 		SetTeamID(2);
 	}
@@ -24,9 +29,14 @@ namespace ly
 		}
 	}
 
+	void EnemySpaceship::SetScoreAwardAmt(unsigned int amt)
+	{
+		mScoreAwardAmt = amt;
+	}
+
 	void EnemySpaceship::SpawnReward()
 	{
-		if (mRewardFactories.size() == 0)
+		if (mRewardFactories.size() == 0 || mRewardSpawnWeight < RandomRange(0, 1))
 			return;
 
 		int pick = (int)RandomRange(0, mRewardFactories.size());
@@ -51,5 +61,10 @@ namespace ly
 	void EnemySpaceship::Blew()
 	{
 		SpawnReward();
+
+		if (Player* player = PlayerManager::Get().GetPlayer())
+		{
+			player->AddScore(mScoreAwardAmt);
+		}
 	}
 }

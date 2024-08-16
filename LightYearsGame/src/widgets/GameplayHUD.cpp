@@ -13,6 +13,8 @@ namespace ly
 		mPlayerHealthBar(),
 		mPlayerLifeIcon("SpaceShooterRedux/PNG/pickups/playerLife1_blue.png"),
 		mPlayerLifeText(""),
+		mPlayerScoreIcon("SpaceShooterRedux/PNG/Power-ups/star_gold.png"),
+		mPlayerScoreText(""),
 		mHealthyHealthBarColor(128, 255, 128, 255),
 		mCriticialHealthBarColor(255, 0, 0, 255),
 		mCriticalThreshold(0.3f),
@@ -20,6 +22,7 @@ namespace ly
 	{
 		mFramerateText.SetTextSize(20.f);
 		mPlayerLifeText.SetTextSize(20.f);
+		mPlayerScoreText.SetTextSize(20.f);
 	}
 
 	void GameplayHUD::Tick(float deltaTime)
@@ -35,6 +38,8 @@ namespace ly
 		mPlayerHealthBar.NativeDraw(windowRef);
 		mPlayerLifeIcon.NativeDraw(windowRef);
 		mPlayerLifeText.NativeDraw(windowRef);
+		mPlayerScoreIcon.NativeDraw(windowRef);
+		mPlayerScoreText.NativeDraw(windowRef);
 	}
 
 	void GameplayHUD::Init(const sf::RenderWindow& windowRef)
@@ -49,8 +54,14 @@ namespace ly
 		nextWidgetPos += sf::Vector2f{ mPlayerLifeIcon.GetBound().width + mWidgetSpacing, 0.f };
 		mPlayerLifeText.SetWidgetLocation(nextWidgetPos);
 
+		nextWidgetPos += sf::Vector2f{ mPlayerLifeText.GetBound().width + mWidgetSpacing * 4.f, -2.f };
+		mPlayerScoreIcon.SetWidgetLocation(nextWidgetPos);
+
+		nextWidgetPos += sf::Vector2f{ mPlayerScoreIcon.GetBound().width + mWidgetSpacing, 0.f };
+		mPlayerScoreText.SetWidgetLocation(nextWidgetPos);
+
 		RefreshHealthBar();
-		ConnectPlayerLifeCount();
+		ConnectPlayerStatus();
 	}
 
 	void GameplayHUD::PlayerHealthUpdated(float amt, float currentHealth, float maxHealth)
@@ -70,6 +81,11 @@ namespace ly
 	void GameplayHUD::PlayerLifeCountUpdated(int amt)
 	{
 		mPlayerLifeText.SetString(std::to_string(amt));
+	}
+
+	void GameplayHUD::PlayerScoreUpdated(int newScore)
+	{
+		mPlayerScoreText.SetString(std::to_string(newScore));
 	}
 
 	void GameplayHUD::PlayerSpaceshipDestroyed(Actor* Actor)
@@ -93,7 +109,7 @@ namespace ly
 		}
 	}
 
-	void GameplayHUD::ConnectPlayerLifeCount()
+	void GameplayHUD::ConnectPlayerStatus()
 	{
 		Player* player = PlayerManager::Get().GetPlayer();
 
@@ -102,6 +118,10 @@ namespace ly
 			int lifeCount = player->GetLifeCount();
 			mPlayerLifeText.SetString(std::to_string(lifeCount));
 			player->onLifeChange.BindAction(GetWeakRef(), &GameplayHUD::PlayerLifeCountUpdated);
+
+			int playerScore = player->GetScore();
+			mPlayerScoreText.SetString(std::to_string(playerScore));
+			player->onScoreChange.BindAction(GetWeakRef(), &GameplayHUD::PlayerScoreUpdated);
 		}
 	}
 }
