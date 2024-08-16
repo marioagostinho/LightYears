@@ -8,6 +8,8 @@ namespace ly
 	class HUD : public Object
 	{
 	public:
+		virtual void Tick(float deltaTime);
+
 		virtual void Draw(sf::RenderWindow& windowRef) = 0;
 		void NativeInit(const sf::RenderWindow& windowRef);
 		virtual bool HandleEvent(const sf::Event& event);
@@ -17,7 +19,7 @@ namespace ly
 		HUD();
 
 	private:
-		virtual void Init(const sf::RenderWindow& windowRef) = 0;
+		virtual void Init(const sf::RenderWindow& windowRef);
 
 		bool mAlreadyInit;
 	};

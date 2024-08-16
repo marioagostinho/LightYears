@@ -49,4 +49,15 @@ namespace ly
 	void Widget::RotationUpdated(float newRotation)
 	{
 	}
+
+	sf::FloatRect Widget::GetBound() const
+	{
+		return sf::FloatRect();
+	}
+
+	sf::Vector2f Widget::GetCenterPosition() const
+	{
+		sf::FloatRect bound = GetBound();
+		return sf::Vector2f{ bound.left + bound.width / 2.f, bound.top + bound.height / 2.f };
+	}
 }

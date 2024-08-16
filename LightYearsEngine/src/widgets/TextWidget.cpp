@@ -1,4 +1,4 @@
-#include "framework//AssetManager.h"
+#include "framework/AssetManager.h"
 #include "widgets/Widget.h"
 #include "widgets/TextWidget.h"
 
@@ -8,7 +8,7 @@ namespace ly
 		const std::string& fontPath,
 		unsigned int characterSize)
 		: mFont(AssetManager::Get().LoadFont(fontPath)),
-		mText(textStr, *mFont.get(), characterSize)
+		mText(textStr, *(mFont.get()), characterSize)
 	{
 	}
 
@@ -20,6 +20,11 @@ namespace ly
 	void TextWidget::SetTextSize(unsigned int newSize)
 	{
 		mText.setCharacterSize(newSize);
+	}
+
+	sf::FloatRect TextWidget::GetBound() const
+	{
+		return mText.getGlobalBounds();
 	}
 
 	void TextWidget::LocationUpdated(const sf::Vector2f& newLocation)

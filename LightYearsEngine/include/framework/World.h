@@ -69,8 +69,8 @@ namespace ly
 		return newActor;
 	}
 
-	template<typename HUDType, typename... Args>
-	weak<HUDType> SpawnHUD(Args... args)
+	template<typename HUDType, typename ...Args>
+	inline weak<HUDType> World::SpawnHUD(Args ...args)
 	{
 		shared<HUDType> newHUD(new HUDType(args...));
 		mHUD = newHUD;

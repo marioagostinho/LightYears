@@ -116,6 +116,8 @@ namespace ly
 		{
 			return mCurrentWorld->DispatchEvent(event);
 		}
+
+		return false;
 	}
 #
 	// Window

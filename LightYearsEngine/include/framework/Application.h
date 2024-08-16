@@ -7,6 +7,7 @@ namespace ly
 {
 	class Actor;
 	class World;
+
 	class Application
 	{
 	public:

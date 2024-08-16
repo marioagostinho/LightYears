@@ -7,6 +7,11 @@ namespace ly
 	{
 	}
 
+	void HUD::Tick(float deltaTime)
+	{
+
+	}
+
 	void HUD::NativeInit(const sf::RenderWindow& windowRef)
 	{
 		if (!mAlreadyInit)
@@ -14,6 +19,10 @@ namespace ly
 			mAlreadyInit = true;
 			Init(windowRef);
 		}
+	}
+
+	void HUD::Init(const sf::RenderWindow& windowRef)
+	{
 	}
 
 	bool HUD::HandleEvent(const sf::Event& event)

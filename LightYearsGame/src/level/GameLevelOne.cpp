@@ -7,6 +7,7 @@
 #include "enemy/HexagonStage.h"
 #include "enemy/UFOStage.h"
 #include "player/PlayerManager.h"
+#include "widgets/GameplayHUD.h"
 
 #include "level/GameLevelOne.h"
 
@@ -19,9 +20,11 @@ namespace ly
 
 	void GameLevelOne::BeginPlay()
 	{
-		Player newPlayer = PlayerManager::Get().CreateNewPlayer();
+		Player& newPlayer = PlayerManager::Get().CreateNewPlayer();
 		mPlayerSpaceship = newPlayer.SpawnSpaceship(this);
 		mPlayerSpaceship.lock()->onActorDestroyed.BindAction(GetWeakRef(), &GameLevelOne::PlayerSpaceshipDestroyed);
+
+		mGameplayHUD = SpawnHUD<GameplayHUD>();
 	}
 
 	void GameLevelOne::InitGameStages()
