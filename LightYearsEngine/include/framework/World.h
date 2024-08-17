@@ -37,6 +37,9 @@ namespace ly
 
 		bool DispatchEvent(const sf::Event& event);
 
+		inline Application* GetApplication() { return mOwningApp; }
+		inline const Application* GetApplication() const { return mOwningApp; }
+
 	private:
 		virtual void BeginPlay();
 		virtual void Tick(float deltaTime);

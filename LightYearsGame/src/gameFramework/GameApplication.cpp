@@ -2,6 +2,7 @@
 
 #include "config.h"
 #include "level/GameLevelOne.h"
+#include "level/MainMenuLevel.h"
 #include "gameFramework/GameApplication.h"
 
 ly::Application* GetApplication()
@@ -18,6 +19,6 @@ namespace ly
 		AssetManager::Get().SetAssetRootDirectory(GetResourceDir());
 
 		// World
-		weak<GameLevelOne> newWorld = LoadWorld<GameLevelOne>();
+		weak<MainMenuLevel> newWorld = LoadWorld<MainMenuLevel>();
 	}
 }

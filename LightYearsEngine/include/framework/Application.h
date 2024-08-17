@@ -21,6 +21,8 @@ namespace ly
 		sf::RenderWindow& GetWindow() { return mWindow; }
 		const sf::RenderWindow& GetWindow() const { return mWindow; }
 
+		void QuitApplication();
+
 	private:
 		void TickInternal(float deltaTime);
 		virtual void Tick(float deltaTime);
@@ -38,6 +40,7 @@ namespace ly
 		sf::Clock mTickClock;
 
 		shared<World> mCurrentWorld;
+		shared<World> mPendingWorld;
 		
 		//Clean cycle
 		sf::Clock mCleanCycleClock;
@@ -48,8 +51,7 @@ namespace ly
 	weak<WorldType> Application::LoadWorld()
 	{
 		shared<WorldType> newWorld(new WorldType(this));
-		mCurrentWorld = newWorld;
-		mCurrentWorld->BeginPlayInternal();
+		mPendingWorld = newWorld;
 
 		return newWorld;
 	}

@@ -3,7 +3,6 @@
 #include "player/PlayerManager.h"
 #include "player/PlayerSpaceship.h"
 #include "player/Player.h"
-
 #include "widgets/GameplayHUD.h"
 
 namespace ly

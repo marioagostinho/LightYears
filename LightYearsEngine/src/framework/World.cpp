@@ -157,8 +157,12 @@ namespace ly
 
 	void World::StartStages()
 	{
-		mCurrentStage = mGameStages.begin();
-		mCurrentStage->get()->StartStage();
-		mCurrentStage->get()->onStageFinished.BindAction(GetWeakRef(), &World::NextGameStage);
+		mCurrentStage = mGameStages.begin(); 
+
+		if (mCurrentStage != mGameStages.end())
+		{
+			mCurrentStage->get()->StartStage();
+			mCurrentStage->get()->onStageFinished.BindAction(GetWeakRef(), &World::NextGameStage);
+		}
 	}
 }

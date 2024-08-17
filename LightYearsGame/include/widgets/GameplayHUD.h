@@ -4,6 +4,7 @@
 #include <widgets/TextWidget.h>
 #include <widgets/ValueGuage.h>
 #include <widgets/ImageWidget.h>
+#include <widgets/Button.h>
 
 namespace ly
 {
