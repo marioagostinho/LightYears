@@ -6,6 +6,7 @@
 #include "enemy/TwinBladeStage.h"
 #include "enemy/HexagonStage.h"
 #include "enemy/UFOStage.h"
+#include "enemy/ChaosStage.h"
 #include "player/PlayerManager.h"
 #include "widgets/GameplayHUD.h"
 
@@ -40,6 +41,9 @@ namespace ly
 
 		AddStage(shared<WaitStage>(new WaitStage(this, 5.f)));
 		AddStage(shared<UFOStage>(new UFOStage(this)));
+
+		AddStage(shared<WaitStage>(new WaitStage(this, 5.f)));
+		AddStage(shared<ChaosStage>(new ChaosStage(this)));
 	}
 
 	void GameLevelOne::PlayerSpaceshipDestroyed(Actor* destroyedPlayerSpaceship)
