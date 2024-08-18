@@ -24,4 +24,9 @@ namespace ly
 
 		++mCurrentLevel;
 	}
+
+	void Shooter::SetCurrentLevel(int level)
+	{
+		mCurrentLevel = level;
+	}
 }

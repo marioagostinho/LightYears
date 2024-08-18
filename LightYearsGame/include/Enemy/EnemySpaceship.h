@@ -22,7 +22,7 @@ namespace ly
 
 		virtual void Tick(float deltaTime) override;
 		void SetScoreAwardAmt(unsigned int amt);
-
+		void SetRewardSpawnWeigh(float weight);
 	private:
 		void SpawnReward();
 

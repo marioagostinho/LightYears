@@ -53,6 +53,9 @@ add_executable(${LIGHT_YEARS_GAME_TARGET_NAME}
 	${CMAKE_CURRENT_SOURCE_DIR}/include/enemy/UFO.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/enemy/UFO.cpp
 
+	${CMAKE_CURRENT_SOURCE_DIR}/include/enemy/Boss.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/enemy/Boss.cpp
+
 	${CMAKE_CURRENT_SOURCE_DIR}/include/enemy/VanguardStage.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/enemy/VanguardStage.cpp
 
@@ -67,6 +70,9 @@ add_executable(${LIGHT_YEARS_GAME_TARGET_NAME}
 
 	${CMAKE_CURRENT_SOURCE_DIR}/include/enemy/ChaosStage.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/enemy/ChaosStage.cpp
+
+	${CMAKE_CURRENT_SOURCE_DIR}/include/enemy/BossStage.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/enemy/BossStage.cpp
 
 	${CMAKE_CURRENT_SOURCE_DIR}/include/level/GameLevelOne.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/level/GameLevelOne.cpp

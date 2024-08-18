@@ -11,6 +11,8 @@ namespace ly
 
 		void ChangeHealth(float amt);
 
+		void SetInitialHealth(float health, float maxHealth);
+
 		float GetHealth() const { return mHealth; }
 		float GetMaxHealth() const { return mMaxHealth; }
 

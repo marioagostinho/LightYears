@@ -21,9 +21,9 @@ namespace ly
 		{
 			mHealth = 0.f;
 		}
-		else if (mHealth > 100.f)
+		else if (mHealth > mMaxHealth)
 		{
-			mHealth = 100.f;
+			mHealth = mMaxHealth;
 		}
 
 		onHealthChanged.Broadcast(amt, mHealth, mMaxHealth);
@@ -37,6 +37,12 @@ namespace ly
 				HealthEmpty();
 			}
 		}
+	}
+
+	void HealthComponent::SetInitialHealth(float health, float maxHealth)
+	{
+		mHealth = health;
+		mMaxHealth = maxHealth;
 	}
 
 	void HealthComponent::TakenDamage(float amt)
