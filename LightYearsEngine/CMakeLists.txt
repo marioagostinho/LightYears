@@ -32,6 +32,12 @@ add_library(${LIGHT_YEARS_ENGINE_TARGET_NAME} STATIC
 	${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Actor.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Actor.cpp
 
+	${CMAKE_CURRENT_SOURCE_DIR}/include/framework/BackdropActor.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/framework/BackdropActor.cpp
+
+	${CMAKE_CURRENT_SOURCE_DIR}/include/framework/BackgroundLayer.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/framework/BackgroundLayer.cpp
+
 	${CMAKE_CURRENT_SOURCE_DIR}/include/VFX/Particle.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/VFX/Particle.cpp
 

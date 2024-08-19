@@ -11,7 +11,7 @@ namespace ly
 		: Spaceship(owningWorld, path),
 		mMoveInput(),
 		mSpeed(200.f),
-		mShooter(new BulletShooter(this, .1f, { 50.f, 0.f })),
+		mShooter(new BulletShooter(this, .2f, { 50.f, 0.f })),
 		mInvulnerableTime(2.f),
 		mInvulnerable(true),
 		mInvulnerableFlashInterval(0.5),

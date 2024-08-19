@@ -25,7 +25,7 @@ namespace ly
 		virtual void TickInternal(float deltaTime);
 		virtual void Tick(float deltaTime);
 		
-		void Render(sf::RenderWindow& window);
+		virtual void Render(sf::RenderWindow& window);
 		void SetTexture(const std::string& texturePath);
 
 		// Set location & rotation
@@ -72,6 +72,8 @@ namespace ly
 		// Sprite
 		sf::Sprite& GetSprite() { return mSprite; }
 		const sf::Sprite& GetSprite() const { return mSprite; }
+
+		void SetTextureRepeated(bool repeated);
 
 		Delegate<Actor*> onActorDestroyed;
 

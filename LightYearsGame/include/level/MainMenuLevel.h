@@ -17,6 +17,8 @@ namespace ly
 		void StartGame();
 		void QuitGame();
 
+		void SpawnCosmetics();
+
 		weak<MainMenuHUD> mMainMenuHUD;
 	};
 }

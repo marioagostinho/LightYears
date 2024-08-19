@@ -21,7 +21,9 @@ namespace ly
 
 	bool MainMenuHUD::HandleEvent(const sf::Event& event)
 	{
-		return mStartButton.HandleEvent(event) || mQuitButton.HandleEvent(event) || HUD::HandleEvent(event);
+		return mStartButton.HandleEvent(event) || 
+			mQuitButton.HandleEvent(event) || 
+			HUD::HandleEvent(event);
 	}
 
 	void MainMenuHUD::Init(const sf::RenderWindow& windowRef)
