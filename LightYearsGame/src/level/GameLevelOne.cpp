@@ -38,22 +38,24 @@ namespace ly
 
 	void GameLevelOne::InitGameStages()
 	{
+		//AddStage(shared<UFOStage>(new UFOStage(this)));
+
 		AddStage(shared<WaitStage>(new WaitStage(this, 5.f)));
 		AddStage(shared<VanguardStage>(new VanguardStage(this)));
 
-		AddStage(shared<WaitStage>(new WaitStage(this, 5.f)));
+		AddStage(shared<WaitStage>(new WaitStage(this, 2.5f)));
 		AddStage(shared<TwinBladeStage>(new TwinBladeStage(this)));
 
-		AddStage(shared<WaitStage>(new WaitStage(this, 5.f)));
+		AddStage(shared<WaitStage>(new WaitStage(this, 2.f)));
 		AddStage(shared<HexagonStage>(new HexagonStage(this)));
 
-		AddStage(shared<WaitStage>(new WaitStage(this, 5.f)));
+		AddStage(shared<WaitStage>(new WaitStage(this, 1.5f)));
 		AddStage(shared<UFOStage>(new UFOStage(this)));
 
-		AddStage(shared<WaitStage>(new WaitStage(this, 5.f)));
+		AddStage(shared<WaitStage>(new WaitStage(this, 3.f)));
 		AddStage(shared<ChaosStage>(new ChaosStage(this)));
 
-		AddStage(shared<WaitStage>(new WaitStage(this, 10.f)));
+		AddStage(shared<WaitStage>(new WaitStage(this, 5.f)));
 		AddStage(shared<BossStage>(new BossStage(this)));
 	}
 

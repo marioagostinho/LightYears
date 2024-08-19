@@ -13,6 +13,13 @@ namespace ly
 		SetActorRotation(90.f);
 	}
 
+	void TwinBlade::BeginPlay()
+	{
+		EnemySpaceship::BeginPlay();
+
+		GetHealthComp().SetInitialHealth(110.f, 110.f);
+	}
+
 	void TwinBlade::Tick(float deltaTime)
 	{
 		EnemySpaceship::Tick(deltaTime);

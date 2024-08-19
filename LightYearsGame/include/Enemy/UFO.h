@@ -13,9 +13,10 @@ namespace ly
 	public:
 		UFO(World* owningWorld,
 			const sf::Vector2f& velocity,
-			const std::string& texturePath = "SpaceShooterRedux/PNG/ufoBlue.png",
+			const std::string& texturePath = "SpaceShooterRedux/PNG/Enemies/ufoYellow.png",
 			float rotationSpeed = 40.f);
 
+		virtual void BeginPlay() override;
 		virtual void Tick(float deltaTime) override;
 		
 	private:

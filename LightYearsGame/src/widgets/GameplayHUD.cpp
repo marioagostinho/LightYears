@@ -28,6 +28,9 @@ namespace ly
 		mPlayerLifeText.SetTextSize(20.f);
 		mPlayerScoreText.SetTextSize(20.f);
 
+		mRestartButton.SetTextSize(20.f);
+		mQuitButton.SetTextSize(20.f);
+
 		SetFinalHUDVisibility(false);
 	}
 

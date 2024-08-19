@@ -22,7 +22,9 @@ namespace ly
 
 	bool BulletShooter::IsOnCooldown() const
 	{
-		if (mCooldownClock.getElapsedTime().asSeconds() > mCooldownTime / GetCurrentLevel())
+		float cooldownByLevel = mCooldownTime - (mCooldownTime / 10 * GetCurrentLevel());
+
+		if (mCooldownClock.getElapsedTime().asSeconds() > cooldownByLevel)
 			return false;
 
 		return true;

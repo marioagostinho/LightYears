@@ -7,7 +7,7 @@ namespace ly
 {
 	VanguardStage::VanguardStage(World* world)
 		: GameStage(world),
-		mSpawnInterval(1.f),
+		mSpawnInterval(1.5f),
 		mSwitchInterval(4.f),
 		mSpawnDistanceToEdge(100.f),
 		mLeftSpawnLoc{0.f, 0.f},

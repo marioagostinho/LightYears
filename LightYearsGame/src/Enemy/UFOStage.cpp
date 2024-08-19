@@ -11,7 +11,7 @@ namespace ly
 		mSpawnInterval(2.f),
 		mSpawnAmt(10),
 		mCurrentSpawnAmt(0),
-		mUFOSpeed(250.f)
+		mUFOSpeed(225.f)
 	{	
 	}
 

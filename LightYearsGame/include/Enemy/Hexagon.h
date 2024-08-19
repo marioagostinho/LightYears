@@ -10,8 +10,9 @@ namespace ly
 	public:
 		Hexagon(World* owningWorld, 
 			const std::string& texturePath = "SpaceShooterRedux/PNG/Enemies/enemyGreen4.png", 
-			const sf::Vector2f& velocity = { 0.f, 150.f });
+			const sf::Vector2f& velocity = { 0.f, 75.f });
 	
+		virtual void BeginPlay() override;
 		virtual void Tick(float deltaTime) override;
 
 	private:

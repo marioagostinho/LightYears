@@ -7,7 +7,7 @@ namespace ly
 {
 	HexagonStage::HexagonStage(World* world)
 		: GameStage(world),
-		mSpawnInterval(5.f),
+		mSpawnInterval(10.f),
 		mSideSpawnOffset(80.f),
 		mSpawnGroupAmt(5),
 		mCurrentSpawnCount(0),

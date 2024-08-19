@@ -10,7 +10,7 @@ namespace ly
 	{
 	public:
 		BulletShooter(Actor *owner,
-					  float cooldownTime = 1.f,
+					  float cooldownTime = .15f,
 					  const sf::Vector2f &localPositionOffset = {0.f, 0.f},
 					  float localRotationOffset = 0.f,
 					  const std::string &bulletTexturePath = "SpaceShooterRedux/PNG/Lasers/laserBlue01.png");

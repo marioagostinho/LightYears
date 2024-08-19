@@ -85,7 +85,7 @@ namespace ly
 	{
 		if (player != nullptr && !player->IsPendingdDestroy())
 		{
-			player->SetShooter(unique<Shooter>(new ThreeWayShooter(player, 0.1, {50.f, 0.f})));
+			player->SetShooter(unique<Shooter>(new ThreeWayShooter(player, 0.25, {50.f, 0.f})));
 		}
 	}
 
@@ -93,7 +93,7 @@ namespace ly
 	{
 		if (player != nullptr && !player->IsPendingdDestroy())
 		{
-			player->SetShooter(unique<Shooter>(new FrontalWiper(player, 0.2, { 50.f, 0.f })));
+			player->SetShooter(unique<Shooter>(new FrontalWiper(player, 0.25, { 50.f, 0.f })));
 		}
 	}
 

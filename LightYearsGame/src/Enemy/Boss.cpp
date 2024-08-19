@@ -27,7 +27,7 @@ namespace ly
 		EnemySpaceship::BeginPlay();
 
 		HealthComponent& healthComp = GetHealthComp();
-		healthComp.SetInitialHealth(3000.f, 3000.f);
+		healthComp.SetInitialHealth(5000.f, 5000.f);
 		healthComp.onHealthChanged.BindAction(GetWeakRef(), &Boss::HealthChanged);
 	}
 
