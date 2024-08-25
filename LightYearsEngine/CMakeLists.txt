@@ -91,6 +91,7 @@ target_link_libraries(${LIGHT_YEARS_ENGINE_TARGET_NAME} PUBLIC sfml-audio)
 
 #Box2D
 set(BOX2D_LIB_NAME Box2D)
+
 FetchContent_Declare(
 	${BOX2D_LIB_NAME}
 	GIT_REPOSITORY https://github.com/erincatto/box2d

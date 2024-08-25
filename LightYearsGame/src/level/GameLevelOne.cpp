@@ -46,10 +46,10 @@ namespace ly
 		AddStage(shared<WaitStage>(new WaitStage(this, 2.5f)));
 		AddStage(shared<TwinBladeStage>(new TwinBladeStage(this)));
 
-		AddStage(shared<WaitStage>(new WaitStage(this, 2.f)));
+		AddStage(shared<WaitStage>(new WaitStage(this, 2.5f)));
 		AddStage(shared<HexagonStage>(new HexagonStage(this)));
 
-		AddStage(shared<WaitStage>(new WaitStage(this, 1.5f)));
+		AddStage(shared<WaitStage>(new WaitStage(this, 2.5f)));
 		AddStage(shared<UFOStage>(new UFOStage(this)));
 
 		AddStage(shared<WaitStage>(new WaitStage(this, 3.f)));
